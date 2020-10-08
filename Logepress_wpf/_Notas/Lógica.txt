@@ -1,0 +1,2 @@
+﻿Index.xaml Menu Atendimentos:
+	Um botão para cadastrar paciente novo, e outro para inserir novo atendimento.
