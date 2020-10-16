@@ -1,0 +1,16 @@
+﻿<Window x:Class="Logepress_wpf.Prescricao"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Logepress_wpf"
+        mc:Ignorable="d"
+        Title="Prescricao" Height="1080" Width="1920" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <TextBox x:Name="txtDescricao" Margin="30,100,30,10" Height="900" BorderThickness="0,0,0,1" Style="{DynamicResource MaterialDesignTextBox}"></TextBox>
+            <Button Content="Salvar Prescrição" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
