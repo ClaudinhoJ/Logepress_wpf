@@ -21,7 +21,7 @@
                             <Label Content="CPF:"/>
                             <TextBox x:Name="txtCpf" Width="150"/>
                             <Label Content="Nome:"/>
-                            <TextBox x:Name="txtNomeCliente"/>
+                            <TextBox x:Name="txtNomeCliente" Text="{Binding Nome}"/>
                         </DockPanel>
                         <DockPanel Margin="0,5">
                             <Label Content="E-mail:" />
@@ -39,7 +39,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Atendimentos" x:Name="TabPacientes" IsSelected="False" MouseDoubleClick="PesquisarPacientes" Background="{x:Null}">
-                <DataGrid x:Name="GridPacientes"  AutoGenerateColumns="False" ItemsSource="{Binding DataGridItems}" 
+                <DataGrid x:Name="GridPacientes"  AutoGenerateColumns="False" ItemsSource="{Binding Paciente}" 
                         RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True" Margin="0,0,0,0" Height="710">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Carteira"       Binding="{Binding Carteira}" Width="150"   />

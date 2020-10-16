@@ -47,6 +47,20 @@ namespace Logepress_wpf
         private void PesquisarCarteira(object sender, RoutedEventArgs e)
         {
             BuscarPacientes p = new BuscarPacientes(txtCarteira.Text);
+
+            pac = new ObservableCollection<Paciente>()
+            {
+                new Paciente(){
+                Carteira = p.table.Rows[0]["Carteira"].ToString(),
+                    CPF = p.table.Rows[0]["CPF"].ToString(),
+                    Nome = p.table.Rows[0]["Nome"].ToString(),
+                    Email = p.table.Rows[0]["Email"].ToString(),
+                    Endereco = p.table.Rows[0]["Endereco"].ToString()}
+            };
+            txtCpf.Text = pac[0].CPF.ToString();
+            txtNomeCliente.Text = pac[0].Nome.ToString();
+            txtEmail.Text = pac[0].Email.ToString();
+            txtEndereco.Text = pac[0].Endereco.ToString();
         }
 
         private void btbCadastrarPaciente_Click(object sender, RoutedEventArgs e)
