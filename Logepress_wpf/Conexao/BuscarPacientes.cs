@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Logepress_wpf.Model
 {
-    public class BuscarPacientes: Index
+    public class BuscarPacientes
     {
         private string _strConn = "Data Source=DESKTOP-5FMEE1N;Initial Catalog=Logepress;Integrated Security=True";
         SqlConnection objConn = null;
@@ -25,7 +25,6 @@ namespace Logepress_wpf.Model
             {
                 SqlDataAdapter adapt = new SqlDataAdapter(cmd);
                 adapt.Fill(table);
-                adapt.Update(table);
                 objConn.Close();
             }
             catch (Exception ex)
@@ -44,10 +43,7 @@ namespace Logepress_wpf.Model
             {
                 SqlDataAdapter adapt = new SqlDataAdapter(cmd);
                 adapt.Fill(table);
-                txtNomeCliente.Text = table.Columns[1].ToString();
-                txtCpf.Text = table.Columns[2].ToString();
-                txtEmail.Text = table.Columns[3].ToString();
-                txtEndereco.Text = table.Columns[4].ToString();
+                objConn.Close();
             }
             catch (Exception ex)
             {
