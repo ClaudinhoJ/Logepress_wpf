@@ -16,7 +16,9 @@ namespace Logepress_wpf.Model
 
         public BuscarPacientes()
         {
-            string strSQL = "SELECT Carteira, Nome, CPF, Email, Endereco FROM PACIENTE";
+            string strSQL = @"select Carteira,CPF, Nome_Paciente,Endereco,Dt_Atendimento,Dt_Alta 
+                              from Consultas_Andamento left join Paciente on Consultas_Andamento.ID_Paciente = Paciente.ID
+                              where Dt_Atendimento >= (convert(date, GETDATE(), 102))";
             objConn = new SqlConnection(_strConn);
             objConn.Open();
             cmd = new SqlCommand(strSQL,objConn);

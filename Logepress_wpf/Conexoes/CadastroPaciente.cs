@@ -8,7 +8,7 @@ namespace Logepress_wpf.Model
 {
     public class CadastroPaciente
     {
-        Conexao conexao = new Conexao();
+        Conexao_bd conexao = new Conexao_bd();
         SqlCommand cmd = new SqlCommand();
         public string mensagem;
 

@@ -7,10 +7,10 @@ using System.Text;
 
 namespace Logepress_wpf.Controle
 {
-    public class Conexao
+    public class Conexao_bd
     {
         SqlConnection con = new SqlConnection();
-        public Conexao()
+        public Conexao_bd()
         {
             con.ConnectionString = "Data Source=DESKTOP-5FMEE1N;Initial Catalog=Logepress;Integrated Security=True";
         }

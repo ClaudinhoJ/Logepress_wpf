@@ -20,6 +20,17 @@ namespace Logepress_wpf
         public Prescricao()
         {
             InitializeComponent();
+            //FormataTxt();
+        }
+
+        //public void FormataTxt()
+        //{
+            
+        //}
+
+        private void Salvar_Prescricao_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

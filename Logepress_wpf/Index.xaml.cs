@@ -1,13 +1,11 @@
 ﻿using Logepress_wpf.Controle;
 using Logepress_wpf.Model;
 using Logepress_wpf.Modelo;
-using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SQLite;
 using System.Text;
 using System.Windows;
 using System.Windows.Data;
@@ -18,7 +16,6 @@ namespace Logepress_wpf
     public partial class Index : Window
     {
         private ObservableCollection<Paciente> pac;
-        //private DataGridItemsIndex d;
 
         public Index()
         {
@@ -36,8 +33,10 @@ namespace Logepress_wpf
                 {
                     Carteira = p.table.Rows[i]["Carteira"].ToString(),
                     CPF = p.table.Rows[i]["CPF"].ToString(),
-                    Nome = p.table.Rows[i]["Nome"].ToString(),
-                    Endereco = p.table.Rows[i]["Endereco"].ToString()
+                    Nome = p.table.Rows[i]["Nome_Paciente"].ToString(),
+                    Endereco = p.table.Rows[i]["Endereco"].ToString(),
+                    Data_Atendimento = (DateTime)p.table.Rows[i]["Dt_Atendimento"],
+                    Data_Alta = (DateTime)p.table.Rows[i]["Dt_Alta"]
                 });
             }
 
@@ -61,6 +60,11 @@ namespace Logepress_wpf
             txtNomeCliente.Text = pac[0].Nome.ToString();
             txtEmail.Text = pac[0].Email.ToString();
             txtEndereco.Text = pac[0].Endereco.ToString();
+        }
+
+        private void btnNovoAtendimento_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btbCadastrarPaciente_Click(object sender, RoutedEventArgs e)

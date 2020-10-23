@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Logepress_wpf.Conexao;
+using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +28,8 @@ namespace Logepress_wpf
         {
             CadastroUsuario c = new CadastroUsuario();
             c.Show();
+            Prescricao p = new Prescricao();
+            p.Show();
             Close();
         }
 
@@ -33,17 +37,13 @@ namespace Logepress_wpf
         {
             if (e.Key == Key.Enter)
             {
-                Index index = new Index();
-                index.Show();
-                Close();
+                ValidaLogin();
             }
         }
 
         private void btnEntrar_Click(object sender, RoutedEventArgs e)
         {
-            Index index = new Index();
-            index.Show();
-            Close();
+            ValidaLogin();
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
@@ -51,6 +51,29 @@ namespace Logepress_wpf
             CadastroUsuario c = new CadastroUsuario();
             c.Show();
             Close();
+        }
+
+        private void ValidaLogin()
+        {
+            try
+            {
+                BuscaUsuario user = new BuscaUsuario(TxtUsuario.Text, TxtSenha.Password);
+                if (user.table.Rows.Count == 1)
+                {
+                    Index index = new Index();
+                    index.Show();
+                    Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Login ou senha inválidos", "Erro ao entrar", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocorreu um erro, favor contactar o suporte", "ERRO: "+ e, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

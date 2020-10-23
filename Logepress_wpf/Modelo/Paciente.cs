@@ -1,4 +1,7 @@
-﻿namespace Logepress_wpf.Modelo
+﻿using Microsoft.VisualBasic;
+using System;
+
+namespace Logepress_wpf.Modelo
 {
     internal class Paciente
     {
@@ -7,5 +10,7 @@
         public string CPF { get; set; }
         public string Email { get; set; }
         public string Endereco { get; set; }
+        public DateTime Data_Atendimento { get; set; }
+        public DateTime Data_Alta { get; set; }
     }
 }

@@ -1,4 +1,0 @@
-﻿Index.xaml Menu Atendimentos:
-	- Fazer uma tabela contendo:
-		1. Atendimento (Chave primária),
-		

@@ -31,7 +31,7 @@
                         </DockPanel>
                         <DockPanel Margin="0,10">
                             <Grid HorizontalAlignment="Right">
-                                <Button Margin="0,0,125,0" Content="Novo atendimento" HorizontalAlignment="Right" />
+                                <Button Margin="0,0,125,0" Content="Novo atendimento" HorizontalAlignment="Right" Click="btnNovoAtendimento_Click" />
                                 <Button Content="Cadastrar" HorizontalAlignment="Right" Click="btbCadastrarPaciente_Click" />
                             </Grid>
                         </DockPanel>
@@ -46,6 +46,8 @@
                         <DataGridTextColumn Header="CPF"            Binding="{Binding CPF}"      Width="150"   />
                         <DataGridTextColumn Header="Nome"           Binding="{Binding Nome}"     Width="*"   />
                         <DataGridTextColumn Header="Endereço"       Binding="{Binding Endereco}" Width="*"   />
+                        <DataGridTextColumn Header="Data Entrada"   Binding="{Binding Data_Atendimento}"  Width="100" />
+                        <DataGridTextColumn Header="Data Alta"  Binding="{Binding Data_Alta}" Width="100"/>
                         <!--<DataGridTextColumn Header="CID"            Binding="{Binding CID}"         />
                         <DataGridTextColumn Header="Status"         Binding="{Binding Status}" />
                         <DataGridTextColumn Header="Data Entrada"   Binding="{Binding DataEntrada}" />
