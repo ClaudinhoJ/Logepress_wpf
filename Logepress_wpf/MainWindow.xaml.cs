@@ -1,36 +1,18 @@
 ﻿using Logepress_wpf.Conexao;
+using Logepress_wpf.Modelo;
 using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Logepress_wpf
 {
     public partial class MainWindow : Window
     {
+        private ObservableCollection<Usuario> usuario;
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Botao1_Click(object sender, RoutedEventArgs e)
-        {
-            CadastroUsuario c = new CadastroUsuario();
-            c.Show();
-            Prescricao p = new Prescricao();
-            p.Show();
-            Close();
         }
 
         private void TxtSenha_KeyDown(object sender, KeyEventArgs e)
@@ -58,21 +40,37 @@ namespace Logepress_wpf
             try
             {
                 BuscaUsuario user = new BuscaUsuario(TxtUsuario.Text, TxtSenha.Password);
-                if (user.table.Rows.Count == 1)
+                usuario = new ObservableCollection<Usuario>()
+                {
+                    new Usuario(){
+                        User =   user.table.Rows[0]["Usuario"].ToString(),
+                        Senha =    user.table.Rows[0]["Senha"].ToString(),
+                        Tipo =   (decimal)user.table.Rows[0]["Tipo"],
+                        Adm = (bool)user.table.Rows[0]["adm"]}
+                };
+
+                if ((user.table.Rows.Count == 1) && (usuario[0].Tipo == 1))
+                {
+                    AtendimentoMedico at = new AtendimentoMedico();
+                    at.Show();
+                    Close();
+                }
+                else if ((user.table.Rows.Count == 1) && (usuario[0].Tipo == 2))
                 {
                     Index index = new Index();
                     index.Show();
                     Close();
-
                 }
-                else
+                else if ((user.table.Rows.Count == 1) && (usuario[0].Adm == true))
                 {
-                    MessageBox.Show("Login ou senha inválidos", "Erro ao entrar", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    CadastroUsuario cd = new CadastroUsuario();
+                    cd.Show();
+                    Close();
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocorreu um erro, favor contactar o suporte", "ERRO: "+ e, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Preencha todos os campos.\nCaso o problema persista contacte o suporte.", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

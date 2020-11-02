@@ -7,10 +7,12 @@ namespace Logepress_wpf.Modelo
     {
         public string Carteira { get; set; }
         public string Nome { get; set; }
+        public string CID { get; set; }
         public string CPF { get; set; }
         public string Email { get; set; }
         public string Endereco { get; set; }
-        public DateTime Data_Atendimento { get; set; }
-        public DateTime Data_Alta { get; set; }
+        public string Data_Atendimento { get; set; }
+        public string Data_Criacao_Prescricao { get; set; }
+        public string Data_Alta { get; set; }
     }
 }

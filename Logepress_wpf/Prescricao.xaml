@@ -5,25 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Logepress_wpf"
         mc:Ignorable="d"
-        Title="Prescricao" Height="700" Width="1300" WindowStartupLocation="CenterScreen" WindowState="Normal">
+        Title="Prescricao" Height="700" Width="1300" WindowStartupLocation="CenterScreen" WindowState="Normal" Closing="Window_Closing">
     <Grid>
 
         <StackPanel Height="700" VerticalAlignment="Top">
             <Grid Margin="10,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100" />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="60" />
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="160"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Nome" HorizontalAlignment="Left"  FontFamily="Verdana" FontSize="20" Grid.Column="0"></Label>
                 <TextBox x:Name="txtNome" TextWrapping="Wrap" TextAlignment="Left" VerticalContentAlignment="Bottom" Grid.Column="1" IsReadOnly="True"/>
-                <Label Content="CID" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="20" Grid.Column="2"/>
-                <TextBox x:Name="txtCID" TextWrapping="Wrap" HorizontalAlignment="Left" TextAlignment="Left" VerticalContentAlignment="Bottom" Grid.Column="3" Width="116"/>
-                <Label Content="Carteira" FontFamily="Verdana" FontSize="20" Grid.Column="4"></Label>
-                <TextBox x:Name="txtCarteira" VerticalContentAlignment="Bottom" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" Grid.Column="5" Width="300" IsReadOnly="True"/>
+                <Label Content="CRM" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="20" Grid.Column="2"/>
+                <TextBox x:Name="txtCRM" TextWrapping="Wrap" HorizontalAlignment="Left" TextAlignment="Left" VerticalContentAlignment="Bottom" Grid.Column="3" Width="116"/>
+                <Label Content="CID" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="20" Grid.Column="4"/>
+                <TextBox x:Name="txtCID" TextWrapping="Wrap" HorizontalAlignment="Left" TextAlignment="Left" VerticalContentAlignment="Bottom" Grid.Column="5" Width="116"/>
+                <Label Content="Carteira" FontFamily="Verdana" FontSize="20" Grid.Column="6"></Label>
+                <TextBox x:Name="txtCarteira" VerticalContentAlignment="Bottom" TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Left" Grid.Column="7" Width="100" IsReadOnly="True"/>
+                <Label Content="Data:" Grid.Column="8" FontSize="20" HorizontalAlignment="Left"></Label>
+                <ComboBox x:Name="dropData" Grid.Column="9" HorizontalAlignment="Left" Width="160" IsEnabled="False"></ComboBox>
             </Grid>
             <Label Content="Descrição" HorizontalAlignment="Left" Margin="10,10,0,0" FontFamily="Verdana" FontSize="20" />
             <TextBox x:Name="txtDescricao" Margin="10,10" Height="300" BorderThickness="1,1,1,1" TextWrapping="Wrap" AcceptsReturn="True"
@@ -43,15 +51,9 @@
                 <TextBox x:Name="Medicacao2" Grid.Row="1" Grid.Column="1" Margin="10,10,10,0"></TextBox>
                 <TextBox x:Name="Medicacao3" Grid.Row="2" Grid.Column="0" Margin="10,10,0,0"></TextBox>
                 <TextBox x:Name="Medicacao4" Grid.Row="2" Grid.Column="1" Margin="10,10,10,0"></TextBox>
-                <!--<ListBox Width="750" HorizontalAlignment="Left" Margin="10,10,0,10" BorderBrush="#FF673AB7" BorderThickness="1,1,1,1" Grid.Row="1">
-                    <CheckBox Content="Remédio1"></CheckBox>
-                    <CheckBox Content="Remédio2"></CheckBox>
-                    <CheckBox Content="Remédio3"></CheckBox>
-                    <CheckBox Content="Remédio4"></CheckBox>
-                </ListBox>-->
             </Grid>
-
         </StackPanel>
-        <Button Content="Salvar Prescrição" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,30,10" Click="Salvar_Prescricao_Click"/>
+        <Button x:Name="btnCarregaPresc" Content="Buscar" VerticalAlignment="Bottom" Margin="0,0,180,10" HorizontalAlignment="Right" Visibility="Hidden" Click="btnCarregaPresc_Click"></Button>
+        <Button x:Name="btnSalvar" Content="Salvar Prescrição" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,30,10" Click="Salvar_Prescricao_Click"/>
     </Grid>
 </Window>
